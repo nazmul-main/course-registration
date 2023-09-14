@@ -3,18 +3,22 @@
 
 
 /* eslint-disable no-unused-vars */
-const Cart = ({ selectedActor }) => {
-    console.log(selectedActor);
+const Cart = ({selectedCourse, totalPrice, totalCredit}) => {
+    console.log(selectedCourse);
     return (
-        <div className="p-3 bg-[#FFF] rounded-md'">
-            <h3 className="text-center">Credit Hour Remaining 7 hr</h3>
+        <div className="p-3 bg-[#FFF] rounded-md space-y-3">
+            <h3 className="text-[#2F80ED] text-center font-semibold">Credit Hour Remaining 7 hr</h3>
+            <hr />
+            <h3 className="  font-bold">Course Nmae</h3>
             {
-                selectedActor.map(actor => (
-
-                        
-                        <li key={actor.id} className="mb-2">{actor.title}</li>
+                selectedCourse.map(course => (
+                        <li key={course.id} className="mb-2">{course.title}</li>
                 ))
             }
+            <hr />
+            <h3 className="text-center font-semibold">Total Credit Hour: {totalCredit}</h3>
+            <hr />
+            <h3 className="text-center font-bold">Total Pice: {totalPrice}</h3>
 
         </div>
     );
