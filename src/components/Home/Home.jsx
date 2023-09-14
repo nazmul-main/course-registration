@@ -9,6 +9,7 @@ const Home = () => {
     const [selectedCourse, setSelectedCourse] =  useState([]);
     const [totalPrice, setTotalPrice] = useState([]);
     const [totalCredit, setTotalCredit] = useState([]);
+    const [remainingCredit, setRemainingCredit] = useState([]);
 
 
 
@@ -37,6 +38,10 @@ const Home = () => {
             selectedCourse.forEach((item => {
                 PriceCount = PriceCount + item.price
             }))
+
+            const remaining = 20 - CreditCount;
+            setRemainingCredit(remaining);
+
             setTotalCredit(CreditCount)
             setTotalPrice(PriceCount);
             setSelectedCourse([...selectedCourse, course]);
@@ -74,6 +79,7 @@ const Home = () => {
                     selectedCourse={selectedCourse} 
                     totalPrice={totalPrice}
                     totalCredit={totalCredit}
+                    remainingCredit={remainingCredit}
                     ></Cart>
                 </div>
             </div>
