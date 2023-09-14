@@ -27,7 +27,7 @@ const Home = () => {
 
 
         if(isExit){
-            return alert('Selected Alredy')
+            return alert(' Alredy selected')
         }
         else{
 
@@ -40,8 +40,15 @@ const Home = () => {
             }))
 
             const remaining = 20 - CreditCount;
-            setRemainingCredit(remaining);
+            if(CreditCount >= 20){
+                return alert('Your Credit is over')
+            }
+            
+            if( PriceCount > 48000){
+                return alert('Not enough money')
+            }
 
+            setRemainingCredit(remaining);
             setTotalCredit(CreditCount)
             setTotalPrice(PriceCount);
             setSelectedCourse([...selectedCourse, course]);
