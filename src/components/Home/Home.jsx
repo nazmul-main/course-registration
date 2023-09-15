@@ -2,6 +2,8 @@
 
 import { useEffect, useState } from 'react';
 import Cart from '../Cart/Cart';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Home = () => {
 
@@ -27,7 +29,9 @@ const Home = () => {
 
 
         if(isExit){
-            return alert(' Alredy selected')
+            toast.error('Already selected', {
+                position: toast.POSITION.TOP_CENTER, // Centered at the top
+              });
         }
         else{
 
@@ -40,12 +44,17 @@ const Home = () => {
             }))
 
             const remaining = 20 - CreditCount;
-            if(CreditCount >= 20){
-                return alert('Your Credit is over')
+            
+            if(CreditCount > 20){
+               return toast.error('Your Credit is over', {
+                    position: toast.POSITION.TOP_CENTER, 
+                  });
             }
             
-            if( PriceCount > 48000){
-                return alert('Not enough money')
+            if( PriceCount > 123000){
+                return toast.error('Not enough money', {
+                    position: toast.POSITION.TOP_CENTER, 
+                  });
             }
 
             setRemainingCredit(remaining);
@@ -63,25 +72,26 @@ const Home = () => {
 
     return (
         <main className='max-w-screen-xl mx-auto  px-4 md:px-8 lg-px-12 py-1 md:py-4 '>
-            <h3 className='text-4xl font-bold text-center mb-6'>Course Registration</h3>
-            <div className='flex md:gap-5 justify-evenly items-start'>
-                <div className='  card-container grid gap-4 lg:grid-cols-3 '>
+            <h3 className='text-2xl md:text-4xl  font-bold text-center mt-6 mb-10'>Course Registration</h3>
+            <div className='flex flex-col bg-orange-100 md:flex-row fle md:gap-5 justify-between md:items-start items-center space-y-3'>
+                <div className='md:w-3/4   card-container grid gap-4 lg:grid-cols-3 '>
                     {
                         allCourses.map(course => (
-                            <div key={course.id} className='w-72 card p-3 bg-[#FFF] rounded-md'>
-                                <img className='rounded-md' src={course?.img} alt="" />
-                                <h3 className='text-[#1C1B1B] font-bold text-xl'>{course?.title}</h3>
-                                <p>{course?.details}</p>
+                            <div key={course.id} className='   card p-3 bg-[#FFF] rounded-md space-y-2'>
+                                <img className='w-full rounded-md' src={course?.img} alt="" />
+                                <h3 className='text-[#1C1B1B] font-bold'>{course?.title}</h3>
+                                <p className='text-gray-500'>{course?.details}</p>
                                 <div className='flex justify-between'>
-                                    <p>$ Price: {course?.price}</p>
-                                    <p>Credit: {course?.credit}</p>
+                                    <p className='font-semibold'>$ Price: {course?.price}</p>
+                                    <p className='font-semibold'>Credit: {course?.credit}</p>
                                 </div>
                                 <button onClick={() => handleSelectCourse(course)}  className='text-center text-white font-semibold py-2 rounded-md w-full bg-[#2F80ED]'>Selact</button>
+                                <ToastContainer/>
                             </div>
                         ))
                     }
                 </div>
-                <div className='cart'>
+                <div className='md:w-1/4 w-full p-3 bg-[#FFF] rounded-md  cart'>
                     <Cart 
                     selectedCourse={selectedCourse} 
                     totalPrice={totalPrice}
