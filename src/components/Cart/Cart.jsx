@@ -11,8 +11,8 @@ const Cart = ({selectedCourse, totalPrice, totalCredit, remainingCredit}) => {
             <hr />
             <h3 className="font-bold">Course Nmae</h3>
             {
-                selectedCourse.map(course => (
-                        <li key={course.id} className=" text-gray-500 mb-2"> {course.title}</li>
+                selectedCourse.map((course, idx) => (
+                        <h4 key={course.id} className=" text-gray-500 mb-2">{idx+1}. {course.title}</h4>
                 ))
             }
             <hr />

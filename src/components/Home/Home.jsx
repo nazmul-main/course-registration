@@ -36,7 +36,7 @@ const Home = () => {
         }
         else {
 
-            selectedCourse.forEach((item => {
+            selectedCourse.forEach(((item) => {
                 CreditCount = CreditCount + item.credit
             }))
 
@@ -52,7 +52,7 @@ const Home = () => {
                 });
             }
 
-            if (PriceCount > 123000) {
+            if (PriceCount > 11230000000) {
                 return toast.error('Not enough money', {
                     position: toast.POSITION.TOP_CENTER,
                 });
