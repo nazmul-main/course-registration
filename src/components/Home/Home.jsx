@@ -72,16 +72,16 @@ const Home = () => {
 
 
     return (
-        <main className='max-w-screen-xl mx-auto  px-4 md:px-8 lg-px-12 py-1 md:py-4 '>
+        <main className='max-w-screen-xl mx-auto  px-4 md:px-8 lg-px-10 py-1 md:py-4 '>
             <h3 className='text-2xl md:text-4xl  font-bold text-center mt-6 mb-10'>Course Registration</h3>
             <div className='flex flex-col md:flex-row md:gap-5 md:items-start items-center space-y-3'>
                 <div className='w-1/2 md:w-2/3 lg:w-3/4  card-container grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-3'>
                     {
                         allCourses.map(course => (
-                            <div key={course.id} className='   card p-3 bg-[#FFF] rounded-md space-y-2'>
+                            <div key={course.id} className='   card p-3 bg-[#FFF] rounded-md space-y-4'>
                                 <img className='w-full rounded-md' src={course?.img} alt="" />
                                 <h3 className='text-[#1C1B1B] font-bold'>{course?.title}</h3>
-                                <p className='text-gray-500'>{course?.details}</p>
+                                <p className='text-gray-500 text-[14px]'>{course?.details}</p>
                                 <div className='flex justify-between'>
                                     <p className='font-semibold'> <i class="text-gray-400 text-xl fa-solid fa-dollar-sign"></i> Price: {course?.price}</p>
                                     <p className='font-semibold'><i class="text-gray-400 text-xl fa-solid fa-book-open"></i> Credit: {course?.credit}</p>
