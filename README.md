@@ -3,20 +3,17 @@
 
 ## 1- Add at least 3 Project features
 
- #### Course Catalog:
- - Your application fetches a list of courses from a JSON file, creating a diverse catalog of available courses for users to explore.
+ #### Course Selection: 
+ - This feature allows users to browse and select courses from a list. The course data is typically fetched from a JSON file or an API, and it is displayed in a user-friendly format, making it easy for users to choose the courses they want to register for..
 
-  #### Price Transparency:
- - Each course in the catalog displays its associated price, ensuring transparency and allowing users to make informed decisions.
+  #### Price Display:
+ - Each course in the list is accompanied by its price. This helps users make informed decisions about which courses to select based on their budget or preferences.
 
-  #### Credit Limit Management:
- - Users are subject to a credit limit of 20. The code monitors selected courses' credit values to prevent users from surpassing this limit.
+  #### Credit Limit: 
+ - Users are assigned a credit limit, typically set at 20 credits. The code is designed to prevent users from exceeding this limit when selecting courses. This ensures that users do not register for more courses than they are allowed to take in a given semester.
 
-  #### Interactive User Feedback:
- - To enhance the user experience, the code employs the react-toastify library, which generates informative and non-disruptive toast notifications.
- - When a user attempts to select a course they've already chosen, a notification informs them of their prior selection.
- - If a user exceeds their 20-credit limit, another notification warns them about this constraint.
- - Additionally, if a user's accumulated course prices exceed a predefined threshold, they receive a notification regarding insufficient funds.
+  #### Toast Notifications:
+ - The code utilizes the React-Toastify library to provide toast notifications to users. These notifications are used to inform users about various actions and events in a user-friendly way. For example, when a user successfully selects a course, they might receive a toast notification confirming their selection. Similarly, if a user attempts to exceed their credit limit or lacks the necessary funds, they will be notified through toast messages.
 
 
  ## 2- Discuss how you managed the state in your assignment project.
